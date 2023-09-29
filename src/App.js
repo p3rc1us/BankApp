@@ -1,5 +1,4 @@
 import './App.css';
-import SearchBar from './components/SearchBar';
 import User1 from './components/User1';
 
 
@@ -17,7 +16,6 @@ function App() {
   return (
     <div className="App">
       <h1>Hello World!</h1>
-      <SearchBar></SearchBar>
       <br />
       <User1 user={bankEmployee} address={address}></User1>
     </div>
