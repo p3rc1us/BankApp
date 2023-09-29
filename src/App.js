@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import SearchBar from './components/SearchBar';
+import User1 from './components/User1';
+
 
 function App() {
+
+  const bankEmployee = {
+    name: "John Smith",
+    age: 45,
+    position: "Account Manager",
+    accountNumber: "1234  5678"
+  }
+
+  const address = "123 4 pamela st.";
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hello World!</h1>
+      <SearchBar></SearchBar>
+      <br />
+      <User1 user={bankEmployee} address={address}></User1>
     </div>
   );
 }
