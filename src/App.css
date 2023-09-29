@@ -1,5 +1,6 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: row;
 }
 
 .App-logo {
@@ -38,6 +39,7 @@
 }
 
 .userinfo {
+  margin: 20px;
   text-align: left;
   width: 300px;
   border-radius: 5px;
@@ -52,4 +54,12 @@
 
 #addbtn:hover {
   background-color: green;
+}
+
+#client1 {
+  margin-top: 20px;
+}
+
+#client2 {
+  margin: 20px;
 }
