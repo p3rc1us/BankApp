@@ -43,23 +43,21 @@
   text-align: left;
   width: 300px;
   border-radius: 5px;
+  border-color: transparent;
+  background-image: url("https://i0.wp.com/backgroundabstract.com/wp-content/uploads/edd/2022/02/4931029-e1656067597521.jpg?resize=1000%2C750&ssl=1");
+  background-position: left;
 }
 
 #addbtn {
-  background-color: rgb(35, 192, 35);
+  width: 80px;
+  height: 30px;
+  border-radius: 15px;
+  border-color: transparent;
+  background-color: rgba(24, 75, 202, 0.453);
   color: white;
-  border-radius: 5px;
-  border-color: rgb(25, 211, 25);
 }
 
 #addbtn:hover {
-  background-color: green;
-}
-
-#client1 {
-  margin-top: 20px;
-}
-
-#client2 {
-  margin: 20px;
+  background-color: rgba(24, 74, 202, 0.788) ;
+  cursor: pointer;
 }
