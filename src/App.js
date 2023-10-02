@@ -1,7 +1,6 @@
 import './App.css';
 import User1 from './components/User1';
 
-
 function App() {
 
   const client1 = {

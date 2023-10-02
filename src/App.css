@@ -2,6 +2,7 @@ body {
   background-image: url("https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg");
   background-size: cover;
   backdrop-filter: blur();
+  background-repeat: no-repeat;
 }
 
 .App {
@@ -67,3 +68,7 @@ body {
   background-color: rgba(24, 74, 202, 0.788) ;
   cursor: pointer;
 }
+
+/* #inputAmount{
+  visibility: visible;
+} */
