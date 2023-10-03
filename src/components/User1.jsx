@@ -55,7 +55,7 @@ const keydownDeposit = (event) => {
         setInputVisible(true)
     }
     const handleDeposit = () => {
-        console.log("im withdrawing");
+        console.log("im depositing");
 
         setInputVisibleDeposit(true)
     }
@@ -75,7 +75,8 @@ const keydownDeposit = (event) => {
             onChange={inputChangeDeposit}
             onKeyDown={keydownDeposit}
              id="inputAmount" 
-             className={inputVisibleDeposit ? 'visible' : 'hidden'}>
+             className={inputVisibleDeposit ? 'visible' : 'hidden'}
+             placeholder='Deposit Amount'>
 
              </input>)}
 
@@ -86,7 +87,8 @@ const keydownDeposit = (event) => {
             onChange={inputChangeWithdraw}
             onKeyDown={keydownWithdraw}
              id="inputAmount" 
-             className={inputVisible ? 'visible' : 'hidden'}>
+             className={inputVisible ? 'visible' : 'hidden'}
+             placeholder='Withdraw Amount'>
 
              </input>)}
 
