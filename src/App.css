@@ -48,10 +48,11 @@ body {
   margin: 20px;
   text-align: left;
   width: 300px;
+  height: auto;
   border-radius: 5px;
   border-color: transparent;
   background-image: url("https://i0.wp.com/backgroundabstract.com/wp-content/uploads/edd/2022/02/4931029-e1656067597521.jpg?resize=1000%2C750&ssl=1");
-  background-position: left;
+  background-position: fixed;
   box-shadow: -7px 7px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -69,6 +70,16 @@ body {
   cursor: pointer;
 }
 
-/* #inputAmount{
-  visibility: visible;
-} */
+#inputAmount{
+  border-color: none;
+  background-color: transparent;
+  border-top: transparent;
+  border-right: transparent;
+  border-left: transparent;
+  border-bottom-color: rgba(24, 75, 202, 0.453);
+}
+
+#inputAmount::placeholder{
+  color: rgba(24, 74, 202, 0.788);
+  font-style: italic;
+}

@@ -11,6 +11,28 @@ function User1(props) {
 
     const [inputDeposit, setInputDeposit] = useState('')
 
+
+
+    const [inputVisibleEdit, setInputVisibleEdit] = useState(false)
+
+    const [inputEdit, setInputEdit] = useState('')
+
+
+
+
+
+const editOnChange = (event) => {
+  setInputEdit(event.target.value);
+};
+
+
+
+
+
+
+
+
+
     const inputChangeWithdraw = (event) => {
         setInputValue(event.target.value);
     };
@@ -45,7 +67,21 @@ const keydownDeposit = (event) => {
 
             setInputDeposit('')
             setInputVisibleDeposit(false);
+        } else {
+            alert('Please enter a valid number');
         }
+    }
+}
+
+const keydownEdit  = (event) => {
+    if (event.keyCode === 13) {
+        const editedName = inputEdit;
+        props.user.name = editedName
+
+        setInputEdit('')
+        setInputVisibleEdit(false)
+
+
     }
 }
 
@@ -54,12 +90,22 @@ const keydownDeposit = (event) => {
 
         setInputVisible(!inputVisible)
         setInputVisibleDeposit(false)
+        setInputVisibleEdit(false)
     }
     const handleDeposit = () => {
         console.log("im depositing");
 
         setInputVisibleDeposit(!inputVisibleDeposit)
         setInputVisible(false)
+        setInputVisibleEdit(false)
+    }
+
+    const handleEdit = () => {
+        console.log("I'm editing");
+
+        setInputVisibleEdit(!inputVisibleEdit)
+        setInputVisible(false)
+        setInputVisibleDeposit(false)
     }
 
 
@@ -68,7 +114,7 @@ const keydownDeposit = (event) => {
             <h2>Client's Name:{props.user.name}</h2>
             <h2>${props.user.balance}</h2>
             <h2>{props.user.accountNumber}</h2>
-            <button type='button' id='addbtn' onClick={handleDeposit}>Deposit</button> <button type='button' id='addbtn' onClick={handleWithdraw}>Withdraw</button> <button type='add' id='addbtn'>Edit</button>
+            <button type='button' id='addbtn' onClick={handleDeposit}>Deposit</button> <button type='button' id='addbtn' onClick={handleWithdraw}>Withdraw</button> <button type='add' id='addbtn' onClick={handleEdit}>Edit</button>
 {/* deposit */}
             {inputVisibleDeposit && 
             (<input 
@@ -94,7 +140,20 @@ const keydownDeposit = (event) => {
 
              </input>)}
 
-            {}
+{/* edit name of client */}
+            {inputVisibleEdit && (<input
+            type="text"
+            value={inputEdit}
+            onChange={editOnChange}
+            onKeyDown={keydownEdit}
+            id="inputAmount"
+            className={inputVisibleEdit ? 'visible' : 'hidden'}
+            placeholder="Confirm Client's Name">
+
+            </input>) }
+            
+            
+
         </fieldset>
     )
 }
