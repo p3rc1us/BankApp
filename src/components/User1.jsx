@@ -52,12 +52,14 @@ const keydownDeposit = (event) => {
     const handleWithdraw = () => {
         console.log("im withdrawing");
 
-        setInputVisible(true)
+        setInputVisible(!inputVisible)
+        setInputVisibleDeposit(false)
     }
     const handleDeposit = () => {
         console.log("im depositing");
 
-        setInputVisibleDeposit(true)
+        setInputVisibleDeposit(!inputVisibleDeposit)
+        setInputVisible(false)
     }
 
 
