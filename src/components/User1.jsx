@@ -30,11 +30,11 @@ function User1(props) {
 
 
     const keydownWithdraw = (event) => {
-                if (event.keyCode === 13) {
-                    const amountToWithdraw = parseFloat(inputValue);
-                    if (!isNaN(amountToWithdraw)) {
-                        if (amountToWithdraw > props.user.balance) {
-                            alert("You have insufficient balance");
+        if (event.keyCode === 13) {
+            const amountToWithdraw = parseFloat(inputValue);
+                if (!isNaN(amountToWithdraw)) {
+                    if (amountToWithdraw > props.user.balance) {
+                        alert("You have insufficient balance");
                         } else {
                             const newBalance = props.user.balance - amountToWithdraw;
                             props.user.balance = newBalance;
@@ -62,17 +62,17 @@ function User1(props) {
     }
 
     const keydownEdit  = (event) => {
-        if (event.keyCode === 13) {
-            const editedName = inputEdit;
+        const editedName = inputEdit;
+        if (event.keyCode === 13 && editedName.trim() !== "" && /^[A-Za-z]+\s[A-Za-z]+$/.test(editedName)) {
+            
             props.user.name = editedName
 
             setInputEdit('')
             setInputVisibleEdit(false)
-
-
         }
     }
 
+// disappearing buttons line 75-97 //
     const handleWithdraw = () => {
         console.log("im withdrawing");
 
@@ -152,3 +152,16 @@ function User1(props) {
 }
 
 export default User1;
+
+/* checklist
+• app should have a page to display all users (can be a table where the name and balance are visible)   ✓✓✓✓✓✓✓✓✓
+• app should have a page for creating a user using email and password 
+• app should have a page for deposit/withdraw/transfer (can be separate or in one page)                 ✓✓✓✓✓✓✓✓✓
+• all design features will depend on YOUR IDEAS.                                                        ✓✓✓✓✓✓✓✓✓
+• wrong_arguments (e.g. amount cannot be negative, name cannot start with a number)                     ✓✓✓✓✓✓✓✓✓
+• user_already_exists ('Den' == 'den')
+• user_does_not_exists ('Den' == 'den')
+• not_enough_money                                                                                      ✓✓✓✓✓✓✓✓✓
+• sender_does_not_exists
+• receiver_does_not_exists
+*/
