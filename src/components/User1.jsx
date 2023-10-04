@@ -11,79 +11,67 @@ function User1(props) {
 
     const [inputDeposit, setInputDeposit] = useState('')
 
-
-
     const [inputVisibleEdit, setInputVisibleEdit] = useState(false)
 
     const [inputEdit, setInputEdit] = useState('')
 
 
-
-
-
-const editOnChange = (event) => {
-  setInputEdit(event.target.value);
-};
-
-
-
-
-
-
-
-
-
-    const inputChangeWithdraw = (event) => {
-        setInputValue(event.target.value);
+    const editOnChange = (event) => {
+    setInputEdit(event.target.value);
     };
 
-    const inputChangeDeposit =  (event) => {
-        setInputDeposit(event.target.value);
-    }
+    const inputChangeWithdraw = (event) => {
+            setInputValue(event.target.value);
+        };
 
-const keydownWithdraw = (event) => {
-            if (event.keyCode === 13) {
-                const amountToWithdraw = parseFloat(inputValue);
-                if (!isNaN(amountToWithdraw)) {
-                    if (amountToWithdraw > props.user.balance) {
-                        alert("You have insufficient balance");
-                    } else {
-                        const newBalance = props.user.balance - amountToWithdraw;
-                        props.user.balance = newBalance;
-        
-                        setInputValue('');
-                        setInputVisible(false);
+    const inputChangeDeposit =  (event) => {
+            setInputDeposit(event.target.value);
+        }
+
+
+    const keydownWithdraw = (event) => {
+                if (event.keyCode === 13) {
+                    const amountToWithdraw = parseFloat(inputValue);
+                    if (!isNaN(amountToWithdraw)) {
+                        if (amountToWithdraw > props.user.balance) {
+                            alert("You have insufficient balance");
+                        } else {
+                            const newBalance = props.user.balance - amountToWithdraw;
+                            props.user.balance = newBalance;
+            
+                            setInputValue('');
+                            setInputVisible(false);
+                        }
                     }
                 }
             }
-        }
 
-const keydownDeposit = (event) => {
-    if (event.keyCode === 13){
-        const amountToDeposit = parseFloat(inputDeposit);
-        if (!isNaN(amountToDeposit) && amountToDeposit > 0) {
-            const newBalance = props.user.balance + amountToDeposit;
-            props.user.balance = newBalance;
+    const keydownDeposit = (event) => {
+        if (event.keyCode === 13){
+            const amountToDeposit = parseFloat(inputDeposit);
+            if (!isNaN(amountToDeposit) && amountToDeposit > 0) {
+                const newBalance = props.user.balance + amountToDeposit;
+                props.user.balance = newBalance;
 
-            setInputDeposit('')
-            setInputVisibleDeposit(false);
-        } else {
-            alert('Please enter a valid number');
+                setInputDeposit('')
+                setInputVisibleDeposit(false);
+            } else {
+                alert('Please enter a valid number');
+            }
         }
     }
-}
 
-const keydownEdit  = (event) => {
-    if (event.keyCode === 13) {
-        const editedName = inputEdit;
-        props.user.name = editedName
+    const keydownEdit  = (event) => {
+        if (event.keyCode === 13) {
+            const editedName = inputEdit;
+            props.user.name = editedName
 
-        setInputEdit('')
-        setInputVisibleEdit(false)
+            setInputEdit('')
+            setInputVisibleEdit(false)
 
 
+        }
     }
-}
 
     const handleWithdraw = () => {
         console.log("im withdrawing");
@@ -114,13 +102,18 @@ const keydownEdit  = (event) => {
             <h2>Client's Name:{props.user.name}</h2>
             <h2>${props.user.balance}</h2>
             <h2>{props.user.accountNumber}</h2>
-            <button type='button' id='addbtn' onClick={handleDeposit}>Deposit</button> <button type='button' id='addbtn' onClick={handleWithdraw}>Withdraw</button> <button type='add' id='addbtn' onClick={handleEdit}>Edit</button>
+            <button type='button' id='addbtn' onClick={handleDeposit}>Deposit</button>{' '}
+            <button type='button' id='addbtn' onClick={handleWithdraw}>Withdraw</button>{' '}
+            <button type='button' id='addbtn'>Transfer</button>{' '}
+            <button type='button' id='addbtn' onClick={handleEdit}>Edit</button>{' '}
+            
 {/* deposit */}
+            {' '}
             {inputVisibleDeposit && 
             (<input 
             type="number" 
             value={inputDeposit}
-            onChange={inputChangeDeposit}
+            onChange={inputChangeDeposit} 
             onKeyDown={keydownDeposit}
              id="inputAmount" 
              className={inputVisibleDeposit ? 'visible' : 'hidden'}
