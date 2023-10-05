@@ -2,42 +2,91 @@ import React, { useState } from 'react';
 
 
 function User1(props) {
+/* these are the input visibilities */
 
     const [inputVisible, setInputVisible]  = useState(false)
 
     const [inputVisibleDeposit, setInputVisibleDeposit] = useState(false)
+    
+    const [inputVisibleEdit, setInputVisibleEdit] = useState(false)
+
+/* changing the values from what we input */
 
     const [inputValue, setInputValue] = useState('')
 
     const [inputDeposit, setInputDeposit] = useState('')
 
-    const [inputVisibleEdit, setInputVisibleEdit] = useState(false)
-
     const [inputEdit, setInputEdit] = useState('')
 
 
+
+
+
+
+    // const [recipientName, setRecipientName] = useState('')
+    // const [transferAmount, setTransferAmount] = useState(0)
+
+    // const handleTransfer = () => {
+    //     if (!recipientName || transferAmount <= 0) {
+    //       alert("Invalid Input");
+    //       return;
+    //     }
+    
+    //     let sender, recipient;
+
+    //     // Access the client data from props.clients
+    //     if (props.clients.name === "John Smith") {
+    //         sender = props.clients;
+    //         recipient = props.client2; // Access client2 from props
+    //     }
+    //     if (transferAmount > recipient.balance) {
+    //       alert('Insufficient balance for transfer');
+    //       return;
+    //     }
+    
+    //     // Calculate new balances and update them as needed
+    //     const senderBalanceAfterTransfer = props.clients.balance - transferAmount;
+    //     const recipientBalanceAfterTransfer = recipient.balance + transferAmount;
+
+    //     props.clients.balance = senderBalanceAfterTransfer;
+    //     recipient.balance = recipientBalanceAfterTransfer;
+    //     // Update balances and re-render components
+    //     // Reset input fields
+    //     setRecipientName('');
+    //     setTransferAmount(0);
+    //   }
+    
+
+
+
+
+/* to connect what we input to the setState */
     const editOnChange = (event) => {
-    setInputEdit(event.target.value);
+        setInputEdit(event.target.value);
     };
 
     const inputChangeWithdraw = (event) => {
-            setInputValue(event.target.value);
-        };
+        setInputValue(event.target.value);
+    };
 
     const inputChangeDeposit =  (event) => {
-            setInputDeposit(event.target.value);
-        }
+        setInputDeposit(event.target.value);
+    };
 
+    // const inputChangeTransfer = (event) => {
+    //     setRecipientName(event.target.value)
+    // }
 
+/* keydowns */
     const keydownWithdraw = (event) => {
         if (event.keyCode === 13) {
             const amountToWithdraw = parseFloat(inputValue);
                 if (!isNaN(amountToWithdraw)) {
-                    if (amountToWithdraw > props.user.balance) {
+                    if (amountToWithdraw > props.clients.balance) {
                         alert("You have insufficient balance");
                         } else {
-                            const newBalance = props.user.balance - amountToWithdraw;
-                            props.user.balance = newBalance;
+                            const newBalance = props.clients.balance - amountToWithdraw;
+                            props.clients.balance = newBalance;
             
                             setInputValue('');
                             setInputVisible(false);
@@ -50,8 +99,8 @@ function User1(props) {
         if (event.keyCode === 13){
             const amountToDeposit = parseFloat(inputDeposit);
             if (!isNaN(amountToDeposit) && amountToDeposit > 0) {
-                const newBalance = props.user.balance + amountToDeposit;
-                props.user.balance = newBalance;
+                const newBalance = props.clients.balance + amountToDeposit;
+                props.clients.balance = newBalance;
 
                 setInputDeposit('')
                 setInputVisibleDeposit(false);
@@ -61,11 +110,13 @@ function User1(props) {
         }
     }
 
+
+
     const keydownEdit  = (event) => {
         const editedName = inputEdit;
         if (event.keyCode === 13 && editedName.trim() !== "" && /^[A-Za-z]+\s[A-Za-z]+$/.test(editedName)) {
             
-            props.user.name = editedName
+            props.clients.name = editedName
 
             setInputEdit('')
             setInputVisibleEdit(false)
@@ -99,9 +150,9 @@ function User1(props) {
 
     return (
         <fieldset className='userinfo'>
-            <h2>Client's Name:{props.user.name}</h2>
-            <h2>${props.user.balance}</h2>
-            <h2>{props.user.accountNumber}</h2>
+            <h2>Client's Name:{props.clients.name}</h2>
+            <h2>${props.clients.balance}</h2>
+            <h2>{props.clients.accountNumber}</h2>
             <button type='button' id='addbtn' onClick={handleDeposit}>Deposit</button>{' '}
             <button type='button' id='addbtn' onClick={handleWithdraw}>Withdraw</button>{' '}
             <button type='button' id='addbtn'>Transfer</button>{' '}
@@ -133,6 +184,20 @@ function User1(props) {
 
              </input>)}
 
+{/* Transfer */}
+
+            {/* <input
+            type="text"
+            placeholder="Recipient's Name"
+            value={recipientName}
+            onChange={inputChangeTransfer}
+            ></input>
+            <input
+            type="number"
+            value={transferAmount}
+            onChange={(e) => setTransferAmount(parseInt(e.target.value))}
+            ></input> */}
+            
 {/* edit name of client */}
             {inputVisibleEdit && (<input
             type="text"
@@ -144,7 +209,8 @@ function User1(props) {
             placeholder="Confirm Client's Name">
 
             </input>) }
-            
+
+            {/* <button onClick={handleTransfer}>Transfer</button> */}
             
 
         </fieldset>

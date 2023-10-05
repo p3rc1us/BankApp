@@ -1,8 +1,8 @@
 body {
   background-image: url("https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg");
   background-size: cover;
-  backdrop-filter: blur();
   background-repeat: no-repeat;
+  color: black;
 }
 
 .App {
@@ -50,10 +50,11 @@ body {
   width: 510px;
   height: auto;
   border-radius: 5px;
-  border-color: transparent;
-  background-image: url("https://i0.wp.com/backgroundabstract.com/wp-content/uploads/edd/2022/02/4931029-e1656067597521.jpg?resize=1000%2C750&ssl=1");
-  background-position: fixed;
-  box-shadow: -7px 7px 10px rgba(0, 0, 0, 0.3);
+  border: solid 1px;
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(3px);
+  box-shadow: -7px 7px 10px rgba(0, 0, 0, 0.3)
 }
 
 #addbtn {
@@ -77,6 +78,10 @@ body {
   border-right: transparent;
   border-left: transparent;
   border-bottom-color: rgba(24, 75, 202, 0.453);
+}
+
+#inputAmount:focus {
+  outline: none !important;
 }
 
 #inputAmount::placeholder{
