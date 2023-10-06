@@ -55,7 +55,9 @@ function User1(props) {
     //     setRecipientName('');
     //     setTransferAmount(0);
     //   }
-    
+     // const inputChangeTransfer = (event) => {
+    //     setRecipientName(event.target.value)
+    // }
 
 
 
@@ -73,9 +75,7 @@ function User1(props) {
         setInputDeposit(event.target.value);
     };
 
-    // const inputChangeTransfer = (event) => {
-    //     setRecipientName(event.target.value)
-    // }
+   
 
 /* keydowns */
     const keydownWithdraw = (event) => {
@@ -155,7 +155,7 @@ function User1(props) {
             <h2>{props.clients.accountNumber}</h2>
             <button type='button' id='addbtn' onClick={handleDeposit}>Deposit</button>{' '}
             <button type='button' id='addbtn' onClick={handleWithdraw}>Withdraw</button>{' '}
-            <button type='button' id='addbtn'>Transfer</button>{' '}
+            {/* <button type='button' id='addbtn'>Transfer</button>{' '} */}
             <button type='button' id='addbtn' onClick={handleEdit}>Edit</button>{' '}
             
 {/* deposit */}
@@ -192,6 +192,7 @@ function User1(props) {
             value={recipientName}
             onChange={inputChangeTransfer}
             ></input>
+            
             <input
             type="number"
             value={transferAmount}
