@@ -24,7 +24,8 @@ const findReceiver = () => {
   });
 
   if (foundReceiver !== undefined) {
-    foundReceiver.balance = foundReceiver.balance + transferAmount;
+    foundReceiver.balance = foundReceiver.balance + Number(transferAmount);
+    return foundReceiver.balance;
   } else {
     alert("Receiver doesn't exist");
   }

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import Transfer from './Transfer';
-
+// import Transfer from './Transfer';
+import clientsData from '../clients.json'
 
 function User1(props) {
 /* these are the input visibilities */
+    const clients = Object.values(clientsData);
 
     const [inputVisible, setInputVisible]  = useState(false)
 
@@ -17,11 +18,19 @@ function User1(props) {
 
     const [inputDeposit, setInputDeposit] = useState('')
 
+    const [receiver, setReceiver] = useState("");
+
     const [inputEdit, setInputEdit] = useState('')
+    
+    const [transferAmount, setTransferAmount] = useState('');
+
+    
 
 
 
 
+
+/* ----------------------------- transfer -------------------*/
 
 
     // const [recipientName, setRecipientName] = useState('')
@@ -76,6 +85,14 @@ function User1(props) {
         setInputDeposit(event.target.value);
     };
 
+    const receiverOnChange = (event) => {
+        setReceiver(event.target.value);
+    };
+      
+    const transferOnChange = (event) => {
+          setTransferAmount(event.target.value); 
+    };
+
    
 
 /* keydowns */
@@ -110,6 +127,31 @@ function User1(props) {
             }
         }
     }
+
+    const findReceiver = () => {
+        const foundReceiver = clients.find((element) => {
+          return element.name === receiver;
+        });
+      
+        if (Number(transferAmount) > props.clients.balance) {
+        //   const newBalance = props.clients.balance - Number(transferAmount);
+          alert(`Insufficient funds in your account`);
+        }else if(foundReceiver === undefined){
+          alert("Receiver doesn't exist");
+
+
+        } else {
+            
+            foundReceiver.balance = foundReceiver.balance + Number(transferAmount);
+          props.clients.balance = props.clients.balance - Number(transferAmount);
+          setTransferAmount('');
+          setReceiver('');
+          
+          console.log(`deducted balance is ${props.clients.balance}. Added ${Number(transferAmount)} to ${foundReceiver.name}, ${foundReceiver.balance} `)
+        
+        }
+        
+      };
 
 
 
@@ -148,6 +190,17 @@ function User1(props) {
         setInputVisibleDeposit(false)
     }
 
+    const handleButtonClick = () => {
+        // Call both functions here
+        console.log("I'm transferring")
+        setTransferAmount('');
+        setReceiver('')
+        setInputVisible(inputVisibleEdit);
+        setInputVisibleDeposit();
+        setInputVisibleEdit();
+        
+      };
+
 
     return (
         <fieldset className='userinfo'>
@@ -156,8 +209,9 @@ function User1(props) {
             <h2>{props.clients.accountNumber}</h2>
             <button type='button' id='addbtn' onClick={handleDeposit}>Deposit</button>{' '}
             <button type='button' id='addbtn' onClick={handleWithdraw}>Withdraw</button>{' '}
-            {/* <button type='button' id='addbtn'>Transfer</button>{' '} */}
+            {/* <button type='button' id='addbtn' onClick={findReceiver}>Transfer</button>{' '} */}
             <button type='button' id='addbtn' onClick={handleEdit}>Edit</button>{' '}
+            <button type='button' id='addbtn' onClick={handleButtonClick}>Refresh</button>{' '}
             
 {/* deposit */}
             {' '}
@@ -199,6 +253,29 @@ function User1(props) {
             value={transferAmount}
             onChange={(e) => setTransferAmount(parseInt(e.target.value))}
             ></input> */}
+
+
+{/*---------------------------------Transfer------------------------------------ */}
+<br />
+<input
+    id="inputAmount"
+      type="text"
+      value={receiver}
+      onChange={receiverOnChange}
+    />
+    <input
+    id="inputAmount"
+      type="text"
+      value={transferAmount}
+      onChange={transferOnChange}
+    />
+    <button type='button' id='addbtn' onClick={findReceiver}>Transfer</button>
+
+
+
+
+
+
             
 {/* edit name of client */}
             {inputVisibleEdit && (<input
@@ -213,7 +290,7 @@ function User1(props) {
             </input>) }
 
             {/* <button onClick={handleTransfer}>Transfer</button> */}
-            <Transfer></Transfer>
+            {/* <Transfer></Transfer> */}
 
         </fieldset>
     )
