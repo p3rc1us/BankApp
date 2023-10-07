@@ -24,6 +24,8 @@ function User1(props) {
     
     const [transferAmount, setTransferAmount] = useState('');
 
+    const [balanceUpdate, setbalanceUpdate] = useState('');
+
     
 
 
@@ -146,6 +148,8 @@ function User1(props) {
           props.clients.balance = props.clients.balance - Number(transferAmount);
           setTransferAmount('');
           setReceiver('');
+          setbalanceUpdate(balanceUpdate);
+          
           
           console.log(`deducted balance is ${props.clients.balance}. Added ${Number(transferAmount)} to ${foundReceiver.name}, ${foundReceiver.balance} `)
         
@@ -192,12 +196,8 @@ function User1(props) {
 
     const handleButtonClick = () => {
         // Call both functions here
-        console.log("I'm transferring")
-        setTransferAmount('');
-        setReceiver('')
-        setInputVisible(inputVisibleEdit);
-        setInputVisibleDeposit();
-        setInputVisibleEdit();
+        console.log("I'm transferring");
+        setbalanceUpdate(props.clients.balance);
         
       };
 
