@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import clientsData from './clients.json'
+import clientsData from '../clients.json'
 
 function Transfer() {
+
 
 const clients = Object.values(clientsData);
 
@@ -47,4 +48,4 @@ return (
 )
 }
 
-export default Transfer
+export default Transfer;

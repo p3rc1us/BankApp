@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Transfer from './Transfer';
 
 
 function User1(props) {
@@ -212,7 +213,7 @@ function User1(props) {
             </input>) }
 
             {/* <button onClick={handleTransfer}>Transfer</button> */}
-            
+            <Transfer></Transfer>
 
         </fieldset>
     )
