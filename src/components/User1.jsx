@@ -204,13 +204,13 @@ function User1(props) {
 
     return (
         <fieldset className='userinfo'>
-            <h2>Client's Name:{props.clients.name}</h2>
+            <h2>Client's Name: {props.clients.name}</h2>
             <h2>${props.clients.balance}</h2>
             <h2>{props.clients.accountNumber}</h2>
             <button type='button' id='addbtn' onClick={handleDeposit}>Deposit</button>{' '}
             <button type='button' id='addbtn' onClick={handleWithdraw}>Withdraw</button>{' '}
-            {/* <button type='button' id='addbtn' onClick={findReceiver}>Transfer</button>{' '} */}
             <button type='button' id='addbtn' onClick={handleEdit}>Edit</button>{' '}
+            <button type='button' id='addbtn' onClick={findReceiver}>Transfer</button>{' '}
             <button type='button' id='addbtn' onClick={handleButtonClick}>Refresh</button>{' '}
             
 {/* deposit */}
@@ -269,7 +269,7 @@ function User1(props) {
       value={transferAmount}
       onChange={transferOnChange}
     />
-    <button type='button' id='addbtn' onClick={findReceiver}>Transfer</button>
+    
 
 
 

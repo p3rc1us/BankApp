@@ -1,8 +1,10 @@
 body {
+  display: block;
   background-image: url("https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
   color: black;
+  font-family: 'Rubik';
 }
 
 .App {
@@ -64,6 +66,7 @@ body {
   border-color: transparent;
   background-color: rgba(24, 75, 202, 0.453);
   color: white;
+  font-family: 'Rubik';
 }
 
 #addbtn:hover {
@@ -88,3 +91,10 @@ body {
   color: rgba(24, 74, 202, 0.788);
   font-style: italic;
 }
+
+#addClient {
+  height: 50px;
+  width: auto;
+}
+
+

@@ -1,12 +1,22 @@
 {
     "client1": {
       "name": "John Smith",
-      "balance": 50000,
+      "balance": 70090,
       "accountNumber": "2594474013447193"
     },
     "client2": {
       "name": "Elon Musk",
-      "balance": 5000000,
+      "balance": 5743231,
       "accountNumber": "4916654547879717"
+    },
+    "client3": {
+      "name": "Victor Rivers",
+      "balance": 89987,
+      "accountNumber": "7265362789172532"
+    },
+    "client4": {
+      "name": "John Younger",
+      "balance": 554212,
+      "accountNumber": "0905542756421700"
     }
 }
