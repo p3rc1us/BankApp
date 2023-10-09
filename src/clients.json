@@ -1,0 +1,17 @@
+{
+    "client1": {
+      "name": "John Smith",
+      "balance": 70090,
+      "accountNumber": "2594474013447193"
+    },
+    "client2": {
+      "name": "Elon Musk",
+      "balance": 5743231,
+      "accountNumber": "4916654547879717"
+    },
+    "client3": {
+      "name": "Victoria Rivers",
+      "balance": 89987,
+      "accountNumber": "7265362789172532"
+    }
+}
