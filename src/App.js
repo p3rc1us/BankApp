@@ -3,8 +3,6 @@ import User1 from './components/User1';
 import clientsData from './clients.json';
 import React, { useState } from 'react';
 
-
-
 function App() {
 
   const clients = Object.values(clientsData);
@@ -38,8 +36,6 @@ const addButtonClick = () => {
   setFormsVisible(!formsVisible);
   
 };
-
-
 
 return (
   <div className="App">
@@ -91,10 +87,6 @@ return (
 </section>
 }
   
-
-
-
-
 </div>
   );
 }

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import Transfer from './Transfer';
 import clientsData from '../clients.json'
 
 function User1(props) {
@@ -27,53 +26,6 @@ function User1(props) {
     const [balanceUpdate, setbalanceUpdate] = useState('');
 
     
-
-
-
-
-
-/* ----------------------------- transfer -------------------*/
-
-
-    // const [recipientName, setRecipientName] = useState('')
-    // const [transferAmount, setTransferAmount] = useState(0)
-
-    // const handleTransfer = () => {
-    //     if (!recipientName || transferAmount <= 0) {
-    //       alert("Invalid Input");
-    //       return;
-    //     }
-    
-    //     let sender, recipient;
-
-    //     // Access the client data from props.clients
-    //     if (props.clients.name === "John Smith") {
-    //         sender = props.clients;
-    //         recipient = props.client2; // Access client2 from props
-    //     }
-    //     if (transferAmount > recipient.balance) {
-    //       alert('Insufficient balance for transfer');
-    //       return;
-    //     }
-    
-    //     // Calculate new balances and update them as needed
-    //     const senderBalanceAfterTransfer = props.clients.balance - transferAmount;
-    //     const recipientBalanceAfterTransfer = recipient.balance + transferAmount;
-
-    //     props.clients.balance = senderBalanceAfterTransfer;
-    //     recipient.balance = recipientBalanceAfterTransfer;
-    //     // Update balances and re-render components
-    //     // Reset input fields
-    //     setRecipientName('');
-    //     setTransferAmount(0);
-    //   }
-     // const inputChangeTransfer = (event) => {
-    //     setRecipientName(event.target.value)
-    // }
-
-
-
-
 /* to connect what we input to the setState */
     const editOnChange = (event) => {
         setInputEdit(event.target.value);
@@ -94,8 +46,6 @@ function User1(props) {
     const transferOnChange = (event) => {
           setTransferAmount(event.target.value); 
     };
-
-   
 
 /* keydowns */
     const keydownWithdraw = (event) => {
@@ -136,7 +86,6 @@ function User1(props) {
         });
       
         if (Number(transferAmount) > props.clients.balance) {
-        //   const newBalance = props.clients.balance - Number(transferAmount);
           alert(`Insufficient funds in your account`);
         }else if(foundReceiver === undefined){
           alert("Receiver doesn't exist");
@@ -195,7 +144,6 @@ function User1(props) {
     }
 
     const handleButtonClick = () => {
-        // Call both functions here
         console.log("I'm transferring");
         setbalanceUpdate(props.clients.balance);
         
@@ -212,7 +160,7 @@ function User1(props) {
             <button type='button' id='addbtn' onClick={handleEdit}>Edit</button>{' '}
             <button type='button' id='addbtn' onClick={findReceiver}>Transfer</button>{' '}
             <button type='button' id='addbtn' onClick={handleButtonClick}>Refresh</button>{' '}
-            
+
 {/* deposit */}
             {' '}
             {inputVisibleDeposit && 
@@ -239,22 +187,6 @@ function User1(props) {
 
              </input>)}
 
-{/* Transfer */}
-
-            {/* <input
-            type="text"
-            placeholder="Recipient's Name"
-            value={recipientName}
-            onChange={inputChangeTransfer}
-            ></input>
-            
-            <input
-            type="number"
-            value={transferAmount}
-            onChange={(e) => setTransferAmount(parseInt(e.target.value))}
-            ></input> */}
-
-
 {/*---------------------------------Transfer------------------------------------ */}
 <br />
 <input
@@ -269,13 +201,6 @@ function User1(props) {
       value={transferAmount}
       onChange={transferOnChange}
     />
-    
-
-
-
-
-
-
             
 {/* edit name of client */}
             {inputVisibleEdit && (<input
@@ -288,9 +213,6 @@ function User1(props) {
             placeholder="Confirm Client's Name">
 
             </input>) }
-
-            {/* <button onClick={handleTransfer}>Transfer</button> */}
-            {/* <Transfer></Transfer> */}
 
         </fieldset>
     )
@@ -307,6 +229,6 @@ export default User1;
 • user_already_exists ('Den' == 'den')
 • user_does_not_exists ('Den' == 'den')
 • not_enough_money                                                                                      ✓✓✓✓✓✓✓✓✓
-• sender_does_not_exists
-• receiver_does_not_exists
+• sender_does_not_exists                                                                                ✓✓✓✓✓✓✓✓✓
+• receiver_does_not_exists                                                                              ✓✓✓✓✓✓✓✓✓
 */
