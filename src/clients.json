@@ -10,13 +10,8 @@
       "accountNumber": "4916654547879717"
     },
     "client3": {
-      "name": "Victor Rivers",
+      "name": "Victoria Rivers",
       "balance": 89987,
       "accountNumber": "7265362789172532"
-    },
-    "client4": {
-      "name": "John Younger",
-      "balance": 554212,
-      "accountNumber": "0905542756421700"
     }
 }
