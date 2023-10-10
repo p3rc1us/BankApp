@@ -1,12 +1,198 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+:root {
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --primary-color: #3498db;
+  --secondary-color: #e74c3c;
+}
+
 body {
   display: block;
   background-image: url("https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
   color: black;
-  font-family: 'Rubik';
+  font-family: 'Rubik', sans-serif;
 }
 
+.budget-container {
+  background-image: url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+.container {
+  margin: 30px auto;
+  width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: var(--box-shadow);
+}
+
+h1 {
+  letter-spacing: 2px;
+  margin: 0;
+  color: #fff;
+  text-align: center;
+  font-size: 48px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 20px 0;
+  background: linear-gradient(135deg, #3498db, #e74c3c);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  border-bottom: 1px solid #bbb;
+  padding-bottom: 10px;
+  margin: 40px 0 10px;
+  color: var(--primary-color); 
+  text-align: center;
+}
+
+h4 {
+  margin: 0;
+  text-transform: uppercase;
+  color: var(--secondary-color); 
+}
+
+.inc-exp-container {
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+.inc-exp-container > div {
+  flex: 1;
+  text-align: center;
+}
+
+.inc-exp-container > div:first-of-type {
+  border-right: 1px solid #dedede;
+}
+
+.money {
+  font-size: 24px; 
+  letter-spacing: 1px;
+  margin: 10px 0; 
+  font-weight: bold; 
+}
+
+.money.plus {
+  color: var(--primary-color); 
+}
+
+.money.minus {
+  color: var(--secondary-color); 
+}
+
+label {
+  display: block; 
+  margin: 10px 0;
+  color: #555; 
+}
+
+input[type='text'],
+input[type='number'] {
+  border: 1px solid #dedede;
+  border-radius: 5px; 
+  display: block;
+  font-size: 16px;
+  padding: 12px; 
+  width: 100%;
+}
+
+.btn {
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: 0;
+  display: block;
+  font-size: 18px;
+  margin: 10px 0 30px;
+  padding: 12px;
+  width: 100%;
+  border-radius: 5px; 
+}
+
+.btn:focus,
+.delete-btn:focus {
+  outline: 0;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 40px;
+}
+
+.list li {
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 12px; 
+  margin: 10px 0;
+  border-radius: 5px; 
+}
+
+.list li.plus {
+  border-right: 5px solid var(--primary-color); 
+}
+
+.list li.minus {
+  border-right: 5px solid var(--secondary-color); 
+}
+
+.delete-btn {
+  cursor: pointer;
+  background-color: var(--secondary-color);
+  border: 0;
+  color: #fff;
+  font-size: 20px;
+  line-height: 20px;
+  padding: 4px 8px; 
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-100%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 5px; 
+}
+
+.list li:hover .delete-btn {
+  opacity: 1;
+}
+
+@media (max-width: 320px) {
+  .container {
+    width: 300px;
+  }
+}
+
+/* bank appcss */
 .App {
   display: flex;
 }
@@ -48,20 +234,94 @@ body {
 
 .userinfo {
   margin: 20px;
-  text-align: left;
-  width: 510px;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  width: 300px;
   height: auto;
-  border-radius: 5px;
-  border: solid 1px;
-  border-color: rgba(255, 255, 255, 0.5);
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(3px);
-  box-shadow: -7px 7px 10px rgba(0, 0, 0, 0.3)
+  border: none; 
+  background: rgba(255, 255, 255, 0.9); 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  position: relative; 
 }
 
+.userinfo h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); 
+}
+
+.userinfo p {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #666; 
+  text-align: center; 
+}
+
+.userinfo button {
+  background-color: transparent;
+  color: #e74c3c; 
+  border: 2px solid #e74c3c; 
+  font-size: 16px;
+  margin: 5px;
+  padding: 10px 20px;
+  border-radius: 0; 
+  cursor: pointer;
+}
+
+.userinfo button:hover {
+  background-color: #e74c3c; 
+  color: #fff; 
+}
+
+.userinfo input[type='text'],
+.userinfo input[type='number'] {
+  border: 1px solid #3498db;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 12px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.userinfo input[type='text'][id^='recipient'],
+.userinfo input[type='number'][id^='amount'] {
+  border-color: #e74c3c; 
+}
+
+
+.userinfo::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 2px solid #3498db; 
+  border-radius: 20px;
+  z-index: -1; 
+}
+
+.userinfo::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border: 2px solid #e74c3c; 
+  border-radius: 20px;
+  z-index: -2;
+} 
+
 #addbtn {
-  width: 80px;
-  height: 30px;
+  width: 250px;
+  height: 50px;
   border-radius: 15px;
   border-color: transparent;
   background-color: rgba(24, 75, 202, 0.453);
@@ -95,6 +355,21 @@ body {
 #addClient {
   height: 50px;
   width: auto;
+  background-color: #3498db; 
+  color: #fff; 
+  font-family: 'Rubik', sans-serif;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; 
 }
 
+#addClient:hover {
+  background-color: #2980b9; 
+  transform: scale(1.05); 
+}
 
+#addClient:focus {
+  outline: none; 
+}

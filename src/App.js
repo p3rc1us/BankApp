@@ -2,8 +2,18 @@ import './App.css';
 import User1 from './components/User1';
 import clientsData from './clients.json';
 import React, { useState } from 'react';
+import { Header } from './components/Header';
+import { Balance } from './components/Balance';
+import { IncomeExpenses } from './components/IncomeExpenses';
+import { TransactionList } from './components/TransactionList';
+import { AddTransaction } from './components/AddTransaction';
+import Calendar from 'react-calendar';
+
+import { GlobalProvider } from './context/GlobalState';
 
 function App() {
+
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
   const clients = Object.values(clientsData);
 /////////////////////////////////////////////////////////////
@@ -86,18 +96,28 @@ return (
     </form>
 </section>
 }
-  
+{/*add budgetapp down here*/}
+<div className="budget-container">
+  <GlobalProvider>
+    <Header />
+    <div className="container">
+      <Balance />
+      <IncomeExpenses />
+      <TransactionList />
+      <AddTransaction />
+    </div>
+  </GlobalProvider>
 </div>
+
+</div>
+
+
+
   );
 }
 
 export default App;
 
-/*
-,
-    "client4": {
-      "name": "John Younger",
-      "balance": 554212,
-      "accountNumber": "0905542756421700"
-    }
-*/
+
+
+

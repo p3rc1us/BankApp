@@ -160,7 +160,6 @@ function User1(props) {
         
       };
 
-
     return (
         <fieldset className='userinfo'>
             <h2>Client's Name: {props.clients.name}</h2>
@@ -232,5 +231,6 @@ function User1(props) {
         </fieldset>
     )
 }
+
 
 export default User1;
